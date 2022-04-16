@@ -1403,7 +1403,7 @@ __setup("cpu_max_c2=", cpufreq_read_cpu_max_c2);
 
 
 /*Overclocking prime cores to 3.016GHz*/
-unsigned long arg_cpu_max_c3 = 3016000; /*max_cpu_freq=3.016 GHz*/
+unsigned long arg_cpu_max_c3 = 2730000; /*max_cpu_freq=3.016 GHz*/
 
 static __init int cpufreq_read_cpu_max_c3(char *cpu_max_c3)
 {

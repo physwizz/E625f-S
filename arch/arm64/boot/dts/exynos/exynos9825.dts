@@ -5641,6 +5641,7 @@
 		reg = <0x0 0x10090000 0x800>;
 		interrupts = <0 INTREQ__TMU_TMU_TOP 0>;
 		tmu_name = "BIG";
+<<<<<<< HEAD
 		id = <0>;
 		sensors = <1984>;	/* 0x7C0 */
 		sensing_mode = "balance";
@@ -5651,6 +5652,28 @@
 	};
 
 	tmuctrl_1: MID@10090000 {
+		id = <0x0>;
+		sensors = <0x7c0>;
+		sensing_mode = "max";
+		hotplug_enable = <0x1>;
+		hotplug_in_threshold = <0x5b>;
+		hotplug_out_threshold = <0x60>;
+		#thermal-sensor-cells = <0x0>;
+		samsung,tmu_gain = <0x0>;
+		samsung,tmu_reference_voltage = <0x0>;
+		samsung,tmu_noise_cancel_mode = <0x4>;
+		samsung,tmu_efuse_value = <0x37>;
+		samsung,tmu_first_point_trim = <0x19>;
+		samsung,tmu_second_point_trim = <0x55>;
+		samsung,tmu_default_temp_offset = <0x32>;
+		samsung,tmu_default_trip_temp = <0x73>;
+		samsung,tmu_cal_type = <0x0>;
+		samsung,tmu_sensor_type = <0x8>;
+		linux,phandle = <0x10d>;
+		phandle = <0x10d>;
+	};
+
+	MID@10090000 {
 		compatible = "samsung,exynos9820-tmu";
 		reg = <0x0 0x10090000 0x800>;
 		interrupts = <0 INTREQ__TMU_TMU_TOP 0>;
@@ -5677,6 +5700,7 @@
 		reg = <0x0 0x100A0000 0x800>;
 		interrupts = <0 INTREQ__TMU_TMU_SUB 0>;
 		tmu_name = "G3D";
+
 		id = <3>;
 		sensors = <542>;	/* 0x21E */
 		sensing_mode = "balance";
@@ -5684,6 +5708,25 @@
 	};
 
 	tmuctrl_4: ISP@100A0000 {
+		id = <0x3>;
+		sensors = <0x21e>;
+		sensing_mode = "max";
+		#thermal-sensor-cells = <0x0>;
+		samsung,tmu_gain = <0x0>;
+		samsung,tmu_reference_voltage = <0x0>;
+		samsung,tmu_noise_cancel_mode = <0x4>;
+		samsung,tmu_efuse_value = <0x37>;
+		samsung,tmu_first_point_trim = <0x19>;
+		samsung,tmu_second_point_trim = <0x55>;
+		samsung,tmu_default_temp_offset = <0x32>;
+		samsung,tmu_default_trip_temp = <0x73>;
+		samsung,tmu_cal_type = <0x0>;
+		samsung,tmu_sensor_type = <0x8>;
+		linux,phandle = <0x11d>;
+		phandle = <0x11d>;
+	};
+
+	ISP@100A0000 {
 		compatible = "samsung,exynos9810-tmu";
 		reg = <0x0 0x100A0000 0x800>;
 		interrupts = <0 INTREQ__TMU_TMU_SUB 0>;
@@ -5711,6 +5754,14 @@
 			k_i = <0>;
 			i_max = <0>;
 			integral_cutoff = <0>;
+			sustainable-power = <0x1>;
+			k_po = <0x0>;
+			k_pu = <0x0>;
+			k_i = <0x0>;
+			i_max = <0x0>;
+			integral_cutoff = <0x0>;
+			linux,phandle = <0x2d5>;
+			phandle = <0x2d5>;
 
 			trips {
 				big_cold: big-cold {
@@ -5721,31 +5772,55 @@
 				big_switch_on: big-switch-on {
 					temperature = <55000>; /* millicelsius */
 					hysteresis = <2000>; /* millicelsius */
+
+				big-switch-on {
+					temperature = <0xc350>;
+					hysteresis = <0x7d0>;
 					type = "active";
 				};
 				big_control_temp: big-control-temp {
 					temperature = <83000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				big-control-temp {
+					temperature = <0xfde8>;
+					hysteresis = <0x1388>;
 					type = "passive";
 				};
 				big_alert0: big-alert0 {
 					temperature = <95000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				big-alert0 {
+					temperature = <0x11940>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				big_alert1: big-alert1 {
 					temperature = <100000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				big-alert1 {
+					temperature = <0x14050>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				big_alert2: big-alert2 {
 					temperature = <105000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				big-alert2 {
+					temperature = <0x16760>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				big_alert3: big-alert3 {
 					temperature = <110000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				big-alert3 {
+					temperature = <0x17ae8>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				big_hot: big-hot {
@@ -5786,6 +5861,10 @@
 				mid_switch_on: mid-switch-on {
 					temperature = <55000>; /* millicelsius */
 					hysteresis = <2000>; /* millicelsius */
+
+				mid-switch-on {
+					temperature = <0xcf08>;
+					hysteresis = <0x7d0>;
 					type = "active";
 				};
 				mid_control_temp: mid-control-temp {
@@ -5796,21 +5875,37 @@
 				mid_alert0: mid-alert0 {
 					temperature = <95000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				mid-alert0 {
+					temperature = <0x14c08>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				mid_alert1: mid-alert1 {
 					temperature = <100000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				mid-alert1 {
+					temperature = <0x15f90>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				mid_alert2: mid-alert2 {
 					temperature = <105000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				mid-alert2 {
+					temperature = <0x17318>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				mid_alert3: mid-alert3 {
 					temperature = <110000>; /* millicelsius */
 					hysteresis = <5000>; /* millicelsius */
+
+				mid-alert3 {
+					temperature = <0x186a0>;
+					hysteresis = <0x1388>;
 					type = "active";
 				};
 				mid_hot: mid-hot {

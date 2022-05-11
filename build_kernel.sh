@@ -1,10 +1,10 @@
 export PLATFORM_VERSION=12
 export ARCH=arm64
 
-<<<<<<< HEAD
+
 make ARCH=arm64 f62_swa_ins_defconfig
 make ARCH=arm64 -j64
-=======
+
 make ARCH=arm64 exynos9820-f62ins_defconfig
 make ARCH=arm64 -j16
 
@@ -53,4 +53,4 @@ $TOOLS_LOC/mkdtboimg.py cfg_create $DTB_LOC/dtb.img --dtb-dir $DTB_LOC/exynos $T
 $TOOLS_LOC/mkdtboimg.py cfg_create $DTB_LOC/dtbo.img --dtb-dir $DTB_LOC/samsung/a21s $TOOLS_LOC/dtbo.cfg
 echo 'Done!'
 
->>>>>>> 2b8611e8b2b2... Build DTB/DTBO Images
+
